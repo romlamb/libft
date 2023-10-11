@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/02 13:00:21 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/05 14:34:55 by romlambe         ###   ########.fr       */
+/*   Created: 2023/10/10 15:14:42 by romlambe          #+#    #+#             */
+/*   Updated: 2023/10/11 16:20:06 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isprint(int c)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	if (c >= 32 && c <= 126)
-		return (1);
-	return (0);
+	t_list	*i;
+	t_list	*j;
+
+	if (!lst || !*lst || !del)
+		return ;
+	i = *lst;
+	while (i)
+	{
+		j = i->next;
+		ft_lstdelone(i, del);
+		i = j;
+	}
+	*lst = 0;
 }

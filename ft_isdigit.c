@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:19:13 by romlamb           #+#    #+#             */
-/*   Updated: 2023/09/30 22:42:36 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/05 10:59:02 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isdigit(int c)
 {
-	if (c >= '9' && c <= '0')
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }

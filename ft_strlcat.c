@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 23:01:23 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 15:55:02 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 09:22:28 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,14 @@ size_t	ft_strlcat(char *dest, const char *src, size_t size)
 	lend = ft_strlen(dest);
 	lens = ft_strlen(src);
 	i = 0;
-	if ((!dest || !src) && !size)
-		return (0);
-	if (size == 0 || (size < lend))
+	if (size == 0 || (size <= lend))
 		return (lens + size);
 	while (src[i] && i < (size - lend - 1))
 	{
 		dest[lend + i] = src[i];
 		i++;
 	}
-	dest[lend + i] = 0;
+	dest[lend + i++] = 0;
 	return (lend + lens);
 }
 /*#include <stdio.h>

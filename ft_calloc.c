@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 23:24:34 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 09:36:37 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 12:10:45 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	*ft_calloc(size_t elementCount, size_t size)
 	void	*ptr;
 
 	if (elementCount == 0 || size == 0)
-		return (NULL);
+		return (malloc(0));
 	size_tot = size * elementCount;
 	if (elementCount != size_tot / size)
-		return (NULL);
+		return (malloc(0));
 	ptr = malloc(size_tot);
 	if (ptr)
 		ft_memset(ptr, 0, size_tot);

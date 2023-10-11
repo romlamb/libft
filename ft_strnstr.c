@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:47:38 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 09:45:06 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 14:52:04 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 {
 	size_t	len;
 
-	if (s2 == 0)
+	if (!*s2)
 		return ((char *)s1);
 	len = ft_strlen(s2);
 	while (*s1 && len <= size)
@@ -32,8 +32,9 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t size)
 #include <stdio.h>
 int    main(void)
 {
-    char str[6] = "salut";
-    char s[6] = "lu";
-    printf("%s\n", ft_strnstr(str, s, 4));
+    char *empty = (char*)"";
+    char s[] = "";
+	printf("%s\n", strstr(empty, ""));
+    printf("%s\n", ft_strnstr(empty, "",-1));
     return (0);
 }*/

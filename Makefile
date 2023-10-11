@@ -3,44 +3,57 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+         #
+#    By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/10/04 14:57:15 by romlamb           #+#    #+#              #
-#    Updated: 2023/10/04 16:14:51 by romlamb          ###   ########.fr        #
+#    Created: 2023/10/05 11:23:23 by romlambe          #+#    #+#              #
+#    Updated: 2023/10/11 16:24:46 by romlambe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC	= ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
-			ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c \
+
+
+SRC			=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
+			ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
+			ft_memmove.c \
 			ft_memset.c ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-			ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
+			ft_strchr.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c \
 			ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c \
-			ft_toupper.c
+			ft_toupper.c ft_strdup.c ft_striteri.c ft_strmapi.c ft_split.c
 
-NAME	= libft.a
+SRCBONUS 	=	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+			ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJ	= $(SRC:.c=.o)
+NAME		=	libft.a
 
-CC 		= gcc
+OBJ			=	$(SRC:.c=.o)
 
-CFLAGS	= -Wall -Werror -Wextra
+OBJBONUS	=	$(SRCBONUS:.c=.o)
 
-RM:		rm -f
+CC			= gcc
 
-all: 	$(NAME)
+CFLAGS		= -Wall -Werror -Wextra
+
+RM= rm -f
+
+ifdef MAKEBONUS
+			OBJ = $(OBJBONUS)
+endif
+
+all:	$(NAME)
 
 $(NAME): $(OBJ)
-		ar rcs $(NAME) $(OBJ)
+			ar rcs $(NAME) $(OBJ)
 
 %.o: %.c
 		$(CC) $(CFLAGS) -o $@ -c $<
-
+bonus:
+			@make MAKEBONUS=1 all
 clean:
-		$(RM) $(OBJ)
+			$(RM) $(OBJ) $(OBJBONUS)
 
 fclean: clean
-		$(RM) $(NAME)
+			$(RM) $(NAME)
 
-re: 	fclean all
+re: 		fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re

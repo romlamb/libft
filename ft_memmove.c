@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:00:35 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 15:52:55 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 14:58:37 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,20 @@ void	*ft_memmove(void *dest, const void *src, size_t size)
 	char		*char_dest;
 	size_t		i;
 
-	i = 0;
+	i = size;
 	char_src = (const char *)src;
 	char_dest = (char *)dest;
-	if (char_src == char_dest)
-		return (NULL);
-	if (char_src < char_dest)
+	if (char_dest > char_src)
 	{
-		while (i < size)
-		{
-			char_dest[i] = char_src[i];
-			i++;
-		}
-	}
-	if (char_src > char_dest)
-	{
-		i = size ;
 		while (i > 0)
 		{
 			char_dest[i - 1] = char_src[i - 1];
 			i--;
 		}
 	}
-	return (dest);
+	else
+		ft_memcpy(char_dest, char_src, size);
+	return (char_dest);
 }
 
 /*#include <stdio.h>

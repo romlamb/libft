@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 18:56:07 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 16:07:30 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 12:08:31 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *str)
+char	*ft_strdup(char const *str)
 {
 	size_t	i;
 	char	*dest;
@@ -27,5 +27,5 @@ char	*ft_strdup(const char *str)
 		i++;
 	}
 	dest[i] = 0;
-	return ((char *)dest);
+	return (dest);
 }

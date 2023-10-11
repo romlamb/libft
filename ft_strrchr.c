@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 10:37:29 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 09:45:26 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 14:22:57 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,24 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	const char	*last;
+	size_t	len;
 
-	last = NULL;
-	while (*str)
-	{
-		if (*str == c)
-			last = str;
-		str++;
-	}
-	if (last != NULL)
-		return ((char *)last);
-	return (NULL);
+	len = ft_strlen((char *)str);
+	if ((char)c == 0)
+		return ((char *)str + len);
+	while (len && str[len] != (char) c)
+		len--;
+	if (str[len] == (char)c)
+		return ((char *)str + len);
+	return (0);
 }
 
 /*#include <stdio.h>
 
 int main()
 {
-	char *str = "salut tout le monde";
+	char *str = "tripouille";
 	char caractere = 'o';
-	printf("%s", ft_strrchr(str, caractere));
-	return 0;
+	printf("%d\n" ,printf("%s\n", ft_strrchr(str, 't' + 256)));
+	printf("%d\n" ,printf("%s\n", strrchr(str, 't' + 256)));	return 0;
 }*/

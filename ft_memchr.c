@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 13:59:13 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 09:37:57 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 14:28:29 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,18 @@ void	*ft_memchr(const void	*memoryBlock, int c, size_t size)
 	i = 0;
 	while (i < size)
 	{
-		if (*(char *)memoryBlock == c)
-			return ((char *)memoryBlock);
+		if (*(unsigned char *)memoryBlock == (unsigned char)c)
+			return ((unsigned char *)memoryBlock);
 		memoryBlock++;
 		i++;
 	}
-	return (NULL);
+	return (0);
 }
 /*#include <stdio.h>
 #include <string.h>
 int main() {
-    char str[] = "Bonjour le monde";
-    char caractere = 'l';
-    size_t taille = ft_strlen(str);
-    void *resultat = memchr(str, caractere, taille);
-    if (resultat != NULL)
-        printf("%s\n",(char *)resultat);
+    char str[] = "tripouille";
+    void *resultat = memchr(str, 2 + 256, 3);
+	printf("%s\n",(char *)resultat);
     return 0;
 }*/

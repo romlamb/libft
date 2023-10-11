@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: romlamb <romlamb@student.42perpignan.fr    +#+  +:+       +#+        */
+/*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 11:29:39 by romlamb           #+#    #+#             */
-/*   Updated: 2023/10/04 15:54:48 by romlamb          ###   ########.fr       */
+/*   Updated: 2023/10/06 10:30:56 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ char	*ft_strjoin(char const*s1, char const *s2)
 
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
-	res = (char *)malloc(sizeof(len1 + len2) + 1);
+	if (!s1 && !s2)
+		return (0);
+	res = ft_calloc(len1 + len2 + 1, sizeof(char));
 	if (!res)
 		return (0);
 	ft_strlcpy(res, s1, len1 + 1);
