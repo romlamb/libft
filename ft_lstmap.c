@@ -6,13 +6,12 @@
 /*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 17:06:22 by romlambe          #+#    #+#             */
-/*   Updated: 2023/10/11 17:05:03 by romlambe         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:02:15 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-//trouver une maniere de verifier que del ou f soit pas vide meme si ca passe
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new;

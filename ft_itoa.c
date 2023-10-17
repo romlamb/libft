@@ -6,13 +6,13 @@
 /*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:09:58 by romlambe          #+#    #+#             */
-/*   Updated: 2023/10/07 14:36:27 by romlambe         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:01:49 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_countdigit(int n)
+static size_t	ft_countdigit(int n)
 {
 	size_t	len;
 
@@ -27,7 +27,7 @@ size_t	ft_countdigit(int n)
 	return (len);
 }
 
-char	*ft_itoa2(int n, char *res, size_t len)
+static char	*ft_itoa2(int n, char *res, size_t len)
 {
 	if (n < 0)
 	{

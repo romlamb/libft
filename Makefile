@@ -6,7 +6,7 @@
 #    By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/05 11:23:23 by romlambe          #+#    #+#              #
-#    Updated: 2023/10/11 16:24:46 by romlambe         ###   ########.fr        #
+#    Updated: 2023/10/13 13:55:58 by romlambe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,8 +46,8 @@ $(NAME): $(OBJ)
 
 %.o: %.c
 		$(CC) $(CFLAGS) -o $@ -c $<
-bonus:
-			@make MAKEBONUS=1 all
+bonus: all
+			make MAKEBONUS=1
 clean:
 			$(RM) $(OBJ) $(OBJBONUS)
 

@@ -6,20 +6,20 @@
 /*   By: romlambe <romlambe@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:39:31 by romlambe          #+#    #+#             */
-/*   Updated: 2023/10/10 17:35:22 by romlambe         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:58:08 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	verif_char(char c, char charset)
+static int	verif_char(char c, char charset)
 {
 	if (c == charset || c == 0)
 		return (1);
 	return (0);
 }
 
-int	count_words(char const *s, char c)
+static int	count_words(char const *s, char c)
 {
 	size_t	i;
 	size_t	words;
@@ -37,7 +37,7 @@ int	count_words(char const *s, char c)
 	return (words);
 }
 
-void	write_words(char const *s, char *dest, char c)
+static void	write_words(char const *s, char *dest, char c)
 {
 	size_t	i;
 
@@ -50,7 +50,7 @@ void	write_words(char const *s, char *dest, char c)
 	dest[i] = 0;
 }
 
-void	write_string(char **array, char *s, char c)
+static void	write_string(char **array, char *s, char c)
 {
 	size_t	i;
 	size_t	j;
