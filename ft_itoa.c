@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:09:58 by romlambe          #+#    #+#             */
-/*   Updated: 2023/10/18 09:10:23 by romlambe         ###   ########.fr       */
+/*   Updated: 2023/10/18 10:53:44 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,10 @@ char	*ft_itoa(int n)
 	res[len] = 0;
 	if (n == 0)
 	{
-		free(res);
 		return (ft_strdup("0"));
 	}
 	if (n == -2147483648)
 	{
-		free(res);
 		return (ft_strdup("-2147483648"));
 	}
 	return (ft_itoa2(n, res, len));
