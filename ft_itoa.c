@@ -6,7 +6,7 @@
 /*   By: romlambe <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 14:09:58 by romlambe          #+#    #+#             */
-/*   Updated: 2023/10/18 10:53:44 by romlambe         ###   ########.fr       */
+/*   Updated: 2023/10/19 10:31:32 by romlambe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static size_t	ft_countdigit(int n)
 	size_t	len;
 
 	len = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 		len++;
 	while (n != 0)
@@ -27,46 +29,38 @@ static size_t	ft_countdigit(int n)
 	return (len);
 }
 
-static char	*ft_itoa2(int n, char *res, size_t len)
+char	*ft_itoa(int n)
 {
+	char	*str;
+	size_t	len;
+
+	len = ft_countdigit(n);
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
+		return (NULL);
+	str[len] = 0;
+	if (n == 0)
+		str[0] = '0';
 	if (n < 0)
 	{
-		res[0] = '-';
-		n *= -1;
+		str[0] = '-';
+		n = -n;
 	}
 	while (n != 0)
 	{
 		len--;
-		res[len] = n % 10 + 48;
-		n = n / 10;
+		str[len] = n % 10 + '0';
+		n /= 10;
 	}
-	return (res);
+	return (str);
 }
-
-char	*ft_itoa(int n)
-{
-	size_t	len;
-	char	*res;
-
-	len = ft_countdigit(n);
-	res = (char *)malloc(sizeof(char) * (len + 1));
-	if (!res)
-		return (NULL);
-	res[len] = 0;
-	if (n == 0)
-	{
-		return (ft_strdup("0"));
-	}
-	if (n == -2147483648)
-	{
-		return (ft_strdup("-2147483648"));
-	}
-	return (ft_itoa2(n, res, len));
-}
-
 /*#include <stdio.h>
 int main()
 {
 	printf("%s\n" ,ft_itoa(2147483647));
+	printf("%s\n" ,ft_itoa(-2147483648));
+	printf("%s\n" ,ft_itoa(0));
 	return (0);
 }*/
